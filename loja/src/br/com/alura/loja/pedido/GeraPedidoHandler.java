@@ -19,12 +19,12 @@ public class GeraPedidoHandler {
 		this.acoes = acoes;
 	}
 	
-	public void execute(GeraPedido dados) {
+	public void executar(GeraPedido dados) {
 		Orcamento orcamento = new Orcamento();
 		orcamento.addItem(new ItemOrcamento(dados.getValorOrcamento()));
 		
 		Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
 		
-		acoes.forEach(acao -> acao.executarAcao(pedido));
+		this.acoes.forEach(acao -> acao.executarAcao(pedido));
 	}
 }
